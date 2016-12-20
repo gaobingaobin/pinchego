@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible"content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <link rel="stylesheet" type="text/css" href="css/car.css"/>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/kuoer.js"></script>
+    <link href="css/box.css" rel="stylesheet" type="text/css" />
+    <script src="js/core.js"></script>
+    <script src="js/ui.core.js"></script>
+    <script src="js/ui.draggable.js"></script>
+    <script src="js/box.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <title>【拼车网|拼车|顺风车|长途拼车】，中国长途拼车网</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1ac9530d5ddfdb958e7025d2ae3c1d9a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <meta content="拼车网，拼车，顺风车，拼车回家，长途拼车，汽车票，搭车，拼车go" name="Keywords">
+    <meta name="description" content="拼车go可在线预定全国各地的长途拼车和顺风车汽车票，包括私家车汽车票，大巴汽车票。当您需要长途拼车或拼车回家时，拼车go网始终是您拼车合乘、搭顺风车的最佳选择。" />
+</head>
+<body>
+<div class="top">
+    <div class="wrap clearfix">
+        <div class="tel">
+            全国免费客服电话：400-005-0000    </div>
+        <!--div class="auth">
+            <a href="#"><img src="images/auth_1.png" alt=""/></a>
+            <a href="#"><img src="images/auth_2.png" alt=""/></a>
+            <a href="#"><img src="images/auth_3.png" alt=""/></a>
+        </div-->
+        <div class="login">
+            <a href="html/register.html" class="ccolor"><font><i class="iconfont">&#xe606;</i>注册</font></a>
+            <span>|</span>
+            <a href="html/login.html" class="ccolor"><font><i class="iconfont">&#xe677;</i>登陆</font></a>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="wrap clearfix">
+        <div class="logo">
+            <a href="#"><img src="images/logo.png" alt=""/></a>
+        </div>
+        <div class="publish">
+            <a href="/home/center/fabupinche.html" class="btn-publish ccolor"><font>发布拼车信息</font></a>
+            <p>今日线路：<span>21542</span></p>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <div class="wrap" style="position:relative">
+        <ul id="nav">
+            <li><a href="/"  class="hover">首        页</a></li>
+            <li><a href="html/chepiao.html"  >汽车票预定</a></li>
+            <li><a href="javascript:;" onclick="javascript:showalert('直达，我们正在全力建设中...','一喂努力提示')"  ><font size="-4">12小时</font>货运直达</a></li>
+            <li><a href="html/about/id/2.html"  >联系我们</a></li>
+            <!--li><a href="#"  >原始股申购</a></li-->
+            <li><a href="http://www.yivizd.com" target="_blank"  >拼车直达</a></li>
+        </ul>
+        <div id="car" style="position:absolute; left:0px; height:40px; width:159; z-index:0"><img src="images/car.gif"/></div>
+    </div>
+</div>
+<script>
+    var init = "0";
+    var w = 159;
+    init = init>0 ? init : 0;
+    var now = init;
+    var gogo = 0;
+    $("#nav li").hover(function(){
+        gogo=0;
+        var num = $(this).index();
+        var cha = num-now;
+        cha = cha<0 ? 0-cha : cha;
+        var jl = num*w;
+        now = num;
+        $("#car").animate({left:jl},200*cha);
+        $("#nav li").find("a").removeClass("hover",500);
+        $(this).find("a").addClass("hover",1000);
+    },function(){
+        gogo=1;
+        var num = $(this).index();
+        var jl = w*init;
+        setTimeout(function(){
+            if(gogo==1){
+                $("#car").animate({left:jl},200*num);
+                $("#nav li").find("a").removeClass("hover",500);
+                $("#nav li:eq("+init+")").find("a").addClass("hover",1000);
+                now = init;
+            }
+        },1000);
+    });
+</script>
+
+<div class="banner-box">
+    <div class="wrap">
+        <div class="banner-popUp">
+            <div id="searchhtml">
+                <dl class="searchcity" style="position:relative">
+                    <a class="sguanbi" href="javascript:;" onclick="closebt()">
+                        <i class="iconfont" style="color:#F00;  font-size:20px">&#xe63b;</i>
+                    </a>
+                    <dt>
+                        <a><strong>热门城市：</strong></a>
+                        <a href="javascript:;" onclick="setcity(this)">北京</a><a href="javascript:;" onclick="setcity(this)">上海</a><a href="javascript:;" onclick="setcity(this)">广州</a><a href="javascript:;" onclick="setcity(this)">深圳</a><a href="javascript:;" onclick="setcity(this)">重庆</a><a href="javascript:;" onclick="setcity(this)">杭州</a><a href="javascript:;" onclick="setcity(this)">成都</a><a href="javascript:;" onclick="setcity(this)">郑州</a><a href="javascript:;" onclick="setcity(this)">济南</a><a href="javascript:;" onclick="setcity(this)">合肥</a><a href="javascript:;" onclick="setcity(this)">石家庄</a><a href="javascript:;" onclick="setcity(this)">天津</a><a href="javascript:;" onclick="setcity(this)">武汉</a><a href="javascript:;" onclick="setcity(this)">南京</a><a href="javascript:;" onclick="setcity(this)">长沙</a><a href="javascript:;" onclick="setcity(this)">沈阳</a><a href="javascript:;" onclick="setcity(this)">哈尔滨</a><a href="javascript:;" onclick="setcity(this)">福州</a><a href="javascript:;" onclick="setcity(this)">厦门</a><a href="javascript:;" onclick="setcity(this)">青岛</a>                    </dt>
+                    <div style="clear:both"></div>
+                    <dd id="sheng">
+                        <a href="javascript:;" onclick="getshi(110000)">北京市</a><a href="javascript:;" onclick="getshi(120000)">天津市</a><a href="javascript:;" onclick="getshi(130000)">河北省</a><a href="javascript:;" onclick="getshi(140000)">山西省</a><a href="javascript:;" onclick="getshi(150000)">内蒙古自治区</a><a href="javascript:;" onclick="getshi(210000)">辽宁省</a><a href="javascript:;" onclick="getshi(220000)">吉林省</a><a href="javascript:;" onclick="getshi(230000)">黑龙江省</a><a href="javascript:;" onclick="getshi(310000)">上海市</a><a href="javascript:;" onclick="getshi(320000)">江苏省</a><a href="javascript:;" onclick="getshi(330000)">浙江省</a><a href="javascript:;" onclick="getshi(340000)">安徽省</a><a href="javascript:;" onclick="getshi(350000)">福建省</a><a href="javascript:;" onclick="getshi(360000)">江西省</a><a href="javascript:;" onclick="getshi(370000)">山东省</a><a href="javascript:;" onclick="getshi(410000)">河南省</a><a href="javascript:;" onclick="getshi(420000)">湖北省</a><a href="javascript:;" onclick="getshi(430000)">湖南省</a><a href="javascript:;" onclick="getshi(440000)">广东省</a><a href="javascript:;" onclick="getshi(450000)">广西壮族自治区</a><a href="javascript:;" onclick="getshi(460000)">海南省</a><a href="javascript:;" onclick="getshi(500000)">重庆市</a><a href="javascript:;" onclick="getshi(510000)">四川省</a><a href="javascript:;" onclick="getshi(520000)">贵州省</a><a href="javascript:;" onclick="getshi(530000)">云南省</a><a href="javascript:;" onclick="getshi(540000)">西藏自治区</a><a href="javascript:;" onclick="getshi(610000)">陕西省</a><a href="javascript:;" onclick="getshi(620000)">甘肃省</a><a href="javascript:;" onclick="getshi(630000)">青海省</a><a href="javascript:;" onclick="getshi(640000)">宁夏回族自治区</a><a href="javascript:;" onclick="getshi(650000)">新疆维吾尔自治区</a><a href="javascript:;" onclick="getshi(710000)">台湾省</a><a href="javascript:;" onclick="getshi(810000)">香港特别行政区</a><a href="javascript:;" onclick="getshi(820000)">澳门特别行政区</a>                    </dd>
+                    <dd id="shi" style="display:none; position:relative; min-height:155px"></dd>
+                    <dd id="shisearch" style="display:none; position:relative; min-height:155px"></dd>
+                </dl>
+            </div>
+            <div id="searchtime">
+                <dl class="searchcity" style="position:relative">
+                    <a class="sguanbi" href="javascript:;" onclick="closetime()">
+                        <i class="iconfont" style="color:#F00;  font-size:20px">&#xe63b;</i>
+                    </a>
+                    <dt>
+                        <a><strong>出发时间：</strong></a>
+                    </dt>
+                    <div style="clear:both"></div>
+                    <dd>
+                        <a href="javascript:;" onclick="settime('12-19')">12-19<p style="position:relative; top:-10px">今天</p></a><a href="javascript:;" onclick="settime('12-20')">12-20<p style="position:relative; top:-10px">明天</p></a><a href="javascript:;" onclick="settime('12-21')">12-21<p style="position:relative; top:-10px">后天</p></a><a href="javascript:;" onclick="settime('12-22')">12-22<p style="position:relative; top:-10px">周四</p></a><a href="javascript:;" onclick="settime('12-23')">12-23<p style="position:relative; top:-10px">周五</p></a><a href="javascript:;" onclick="settime('12-24')">12-24<p style="position:relative; top:-10px">周六</p></a><a href="javascript:;" onclick="settime('12-25')">12-25<p style="position:relative; top:-10px">周日</p></a><a href="javascript:;" onclick="settime('12-26')">12-26<p style="position:relative; top:-10px">周一</p></a><a href="javascript:;" onclick="settime('12-27')">12-27<p style="position:relative; top:-10px">周二</p></a><a href="javascript:;" onclick="settime('12-28')">12-28<p style="position:relative; top:-10px">周三</p></a><a href="javascript:;" onclick="settime('12-29')">12-29<p style="position:relative; top:-10px">周四</p></a><a href="javascript:;" onclick="settime('12-30')">12-30<p style="position:relative; top:-10px">周五</p></a><a href="javascript:;" onclick="settime('12-31')">12-31<p style="position:relative; top:-10px">周六</p></a><a href="javascript:;" onclick="settime('01-01')">01-01<p style="position:relative; top:-10px">周日</p></a><a href="javascript:;" onclick="settime('01-02')">01-02<p style="position:relative; top:-10px">周一</p></a>                    </dd>
+                </dl>
+            </div>
+            <ul>
+                <li>
+                    <div class="input-wrap">
+                        <span>出发地</span>
+                        <input type="text" id="gocity" value="" placeholder="城市名/简拼/全拼" onfocus="onf(this)" onblur="onb(this)" class="form-input"/>
+                    </div>
+                    <div class="change">
+                        <a href="javascript:;" onclick="changecity()">换</a>
+                    </div>
+                    <div class="input-wrap r">
+                        <span>目的地</span>
+                        <input type="text" id="endcity" value="" placeholder="城市名/简拼/全拼" onfocus="onf(this)" onblur="onb(this)"  class="form-input"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap">
+                        <span>日期</span>
+                        <input type="text" class="form-input" onfocus="showtime()" placeholder="出发日期" id="gotime"/>
+                    </div>
+                    <input type="button" class="form-btn" value="搜索" onClick="searchkey()"/>
+                </li>
+                <li class="hot-line">
+                    热门线路：
+                    <span><a href="javascript:;" onclick="gohot('北京->上海')">北京->上海</a></span><span><a href="javascript:;" onclick="gohot('广州->北京')">广州->北京</a></span>                </li>
+                <script>
+                    function gohot(city){
+                        var city = city.split('->');
+                        var data = {};
+                        data['gocity'] = city[0];
+                        data['endcity'] = city[1];
+                        $.post("html/geturl.html",{model:'chepiao',data:data},function(v){
+                            location.href= v.url;
+                        },'json');
+                    }
+                    function searchkey(){
+                        var data = {};
+                        data['gocity'] = $("#gocity").val();
+                        data['endcity'] = $("#endcity").val();
+                        data['gotime'] = $("#gotime").val();
+                        $.post("html/geturl.html",{model:'chepiao',data:data},function(v){
+                            location.href= v.url;
+                        },'json');
+                    }
+                    $(document).ready(function(e) {
+                        $("#searchtime dd a").hover(function(){
+                            $(this).addClass("hover",600);
+                        },function(){
+                            $(this).removeClass("hover",600);
+                        });
+
+                        var cook = "";
+                        if(!cook){
+                            $.post("html/dingwei.html",{},function(v){
+                                if(v.status==0){
+                                    var rs = v.result;
+                                    var city = rs['ad_info']['city'];
+                                    //setcookie('shi','qu',city);
+                                    $("#gocity").val(city);
+                                }else{
+                                    showalert(v.message+'-暂时无法获得您的位置');
+                                }
+                            },'json');
+                        }
+                    });
+                    //时间
+                    function settime(time){
+                        $("#gotime").val(time);
+                        closetime();
+                    }
+                    function closetime(){
+                        $("#searchtime").slideUp();
+                    }
+                    function showtime(){
+                        $("#searchtime").slideDown();
+
+                    }
+                    //更换始终地
+                    function changecity(){
+                        var gocity = $("#gocity").val();
+                        var endcity = $("#endcity").val();
+                        $("#gocity").val(endcity);
+                        $("#endcity").val(gocity);
+                    }
+                    //点击换地区
+                    var inter;
+                    var searchtxt='';
+                    var nowid = 'gocity';
+                    var nowhtml = nowid == 'gocity' ? '<b>出发城市：</b>' : '<b>目的地城市：</b>';
+                    var initsearch = '<dl><dt>'+nowhtml+'</dt>';
+                    var oldval = '';
+                    function onf(id){
+                        oldval = $(id).val();
+                        var thisid = $(id).attr("id");
+                        nowid = thisid;
+                        $(id).val('');
+                        $("#searchhtml").slideDown();
+                        inter = setInterval(function(){
+                            var thisval = $("#"+nowid).val();
+                            if(thisval != searchtxt && thisval !=''){
+                                searchtxt = thisval;
+                                $("#sheng").slideUp(function(){
+                                    $("#shi").slideDown(function(){
+                                        $.post("html/getshi.html",{keyword:searchtxt},function(v){
+                                            if(v.status){
+                                                var html = '';
+                                                var list = v.list;
+                                                for(var i=0; i<list.length; i++){
+                                                    html +='<a href="javascript:;" onclick="setcity(this)">'+list[i]['name']+'</a>';
+                                                }
+                                                html +='<div style="clear:both"></div><p style=" position:absolute; bottom:5px"><a href="javascript:;" onclick="backsheng()"><i class="iconfont">&#xe611;</i>返回</a></p>';
+                                                $("#shi").html(html);
+                                            }
+                                        },'json');
+                                    });
+                                });
+                            }
+                        },500);
+                    }
+                    function onb(id){
+                        var val = $(id).val();
+                        if(!val) $(id).val(oldval);
+                        searchtxt='';
+                        clearInterval(inter);
+                    }
+                    function closebt(){
+                        $("#"+nowid).val(oldval);
+                        searchtxt='';
+                        $("#searchhtml").slideUp(function(){
+                            $("#sheng").show();
+                            $("#shi").hide();
+                        });
+                        clearInterval(inter);
+                    }
+                    function setcity(id){
+                        var city = $(id).html();
+                        clearInterval(inter);
+                        searchtxt='';
+                        $("#"+nowid).val(city);
+                        $("#searchhtml").slideUp(function(){
+                            $("#sheng").show();
+                            $("#shi").hide();
+                        });
+                    }
+                    function getshi(id){
+                        $("#sheng").slideUp(function(){
+                            $("#shi").html('<p>数据加载中</p>');
+                            $("#shi").slideDown(function(){
+                                $.post("html/getshi.html",{pid:id,keyword:''},function(v){
+                                    if(v.status){
+                                        var html = '';
+                                        var list = v.list;
+                                        for(var i=0; i<list.length; i++){
+                                            html +='<a href="javascript:;" onclick="setcity(this)">'+list[i]['name']+'</a>';
+                                        }
+                                        html +='<div style="clear:both"></div><p style=" position:absolute; bottom:5px"><a href="javascript:;" onclick="backsheng()"><i class="iconfont">&#xe611;</i>返回</a></p>';
+                                        $("#shi").html(html);
+                                    }
+                                },'json');
+                            });
+                        });
+                    }
+                    function backsheng(){
+                        $("#shi").slideUp(function(){
+                            $("#sheng").slideDown();
+                            searchtxt='';
+                            clearInterval(inter);
+                        });
+                    }
+                </script>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .banner ul{height:391px; width:200.02%; min-width:px; position:relative; z-index:1}
+        .banner ul li{float:left; height:391px; width:50%; min-width:1100px}
+    </style>
+    <div class="banner">
+        <ul id="bannerlist">
+            <li style="background: url('uploads/56d4ff301c0e5.jpg') no-repeat center; cursor:pointer" onclick="gourl('http://yivicar.comhtml/chepiao.html')"></li><li style="background: url('uploads/56a0eaac9fa6a.jpg') no-repeat center; cursor:pointer" onclick="gourl('http://www.yivizd.com')"></li>        	<li style="background: url('/Uploads/Picture/2016-03-01/56d4ff301c0e5.jpg') no-repeat center; cursor:pointer" onclick="gourl('http://www.yivizd.com')"></li>
+        </ul>
+    </div>
+</div>
+<script>
+    function gourl(url){
+        window.open(url,"_blank")
+    }
+    $(document).ready(function(e) {
+        var tleft = 0;
+        var w = $(window).width();
+        var num = $("#bannerlist li").length;
+        $("#bannerlist").css("width",w*num+1);
+        $("#bannerlist li").css("width",w);
+        setInterval(function(){
+            if(tleft<num+1){
+                $("#bannerlist").animate({"left":-tleft*w},600,function(){
+                    tleft++;
+                    if(tleft==num){
+                        tleft=0;
+                        $("#bannerlist").css({"left":0});
+                    }
+                });
+            }
+        },3000);
+    });
+</script>
+<!--------------汽车票预定---------------------------->
+<div class="wrap">
+    <div class="title"><a href="html/chepiao.html">更多<i class="iconfont">&#xe6b2;</i></a><i class="iconfont">&#xecda;</i>汽车票预定</div>
+    <dl class="piao">
+        <dt>
+            <a class="ri ri2" href="javascript:;" id="day12-19" onclick="showday('12-19','今天')">12-19<font>今天</font></a>
+            <a class="ri" href="javascript:;" id="day12-20" onclick="showday('12-20','明天')">12-20<font></font></a>                    <a class="ri" href="javascript:;" id="day12-21" onclick="showday('12-21','后天')">12-21<font></font></a>                    <a class="ri" href="javascript:;" id="day12-22" onclick="showday('12-22','周四')">12-22<font></font></a>                    <a class="ri" href="javascript:;" id="day12-23" onclick="showday('12-23','周五')">12-23<font></font></a>                    <a class="ri" href="javascript:;" id="day12-24" onclick="showday('12-24','周六')">12-24<font></font></a>                    <a class="ri" href="javascript:;" id="day12-25" onclick="showday('12-25','周日')">12-25<font></font></a>                    <a class="ri" href="javascript:;" id="day12-26" onclick="showday('12-26','周一')">12-26<font></font></a>                    <a class="ri" href="javascript:;" id="day12-27" onclick="showday('12-27','周二')">12-27<font></font></a>                    <a class="ri" href="javascript:;" id="day12-28" onclick="showday('12-28','周三')">12-28<font></font></a>                    <a class="ri" href="javascript:;" id="day12-29" onclick="showday('12-29','周四')">12-29<font></font></a>                    <a class="ri" href="javascript:;" id="day12-30" onclick="showday('12-30','周五')">12-30<font></font></a>                    <a class="ri" href="javascript:;" id="day12-31" onclick="showday('12-31','周六')">12-31<font></font></a>                    <a class="ri" href="javascript:;" id="day01-01" onclick="showday('01-01','周日')">01-01<font></font></a>                    <a class="ri" href="javascript:;" id="day01-02" onclick="showday('01-02','周一')">01-02<font></font></a>             <div class="clear"></div>
+        </dt>
+        <dd>
+            <a><strong>车型：</strong></a>
+            <!--a class="hover">全部</a-->
+            <label class="allcar" for="allcar1"><input id="allcar1"  type="checkbox" value="舒适私家车" />舒适私家车</label><label class="allcar" for="allcar2"><input id="allcar2"  type="checkbox" value="中级私家车" />中级私家车</label><label class="allcar" for="allcar3"><input id="allcar3"  type="checkbox" value="豪华私家车" />豪华私家车</label><label class="allcar" for="allcar4"><input id="allcar4"  type="checkbox" value="出租车" />出租车</label><label class="allcar" for="allcar5"><input id="allcar5"  type="checkbox" value="豪华大巴座位" />豪华大巴座位</label><label class="allcar" for="allcar6"><input id="allcar6"  type="checkbox" value="豪华大巴卧铺" />豪华大巴卧铺</label><label class="allcar" for="allcar7"><input id="allcar7"  type="checkbox" value="普通大巴" />普通大巴</label>            <div class="clear"></div>
+        </dd>
+        <div class="clear"></div>
+    </dl>
+    <!--p style="padding:10px">出发城市：</p-->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th height="50" align="center" bgcolor="#00A1D9" width="100">头像</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="100">昵称</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="240"><p>出发地</p><p>目的地</p></th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="100">出发时间</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="100">车型</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="80">票价</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="80">座位数</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="100">途经</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="80">保证金</th>
+            <th height="50" align="center" bgcolor="#00A1D9" width="80">预定</th>
+        </tr>
+        <tr>
+            <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+            <td height="50" bgcolor="#FFFFFF">
+                <p class="iconcity"><i>起</i>天津市    小站</p>
+                <p class="iconcity2"><i>终</i>邯郸市    永年太极广场</p>
+            </td>
+            <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+            <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
+            <td height="50" align="center" bgcolor="#FFFFFF">120</td>
+            <td height="50" align="center" bgcolor="#FFFFFF">已满</td>
+            <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/345.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>天津市    天津小站工业园</p>
+                <p class="iconcity2"><i>终</i>邯郸市    永年太极广场</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >128</td>
+            <td height="50" align="center" >8</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/347.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>娄底市    新化站</p>
+            <p class="iconcity2"><i>终</i>长沙市    星沙华天大酒店</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">中级私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">73</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/2354.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>南通市    中南城</p>
+                <p class="iconcity2"><i>终</i>常州市    常州市武进区政府</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >48</td>
+            <td height="50" align="center" >3</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/5664.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>牡丹江市    牡丹江站</p>
+            <p class="iconcity2"><i>终</i>鸡西市    鸡西站</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">50</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/5942.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>北京市    望京西-地铁站</p>
+                <p class="iconcity2"><i>终</i>赤峰市    松山供水</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >150</td>
+            <td height="50" align="center" >7</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/7485.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>北京市    望京西-地铁站</p>
+            <p class="iconcity2"><i>终</i>赤峰市    永业广场</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">150</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">7</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/7615.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>北京市    望京西-地铁站</p>
+                <p class="iconcity2"><i>终</i>赤峰市    永业广场</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >150</td>
+            <td height="50" align="center" >7</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/8052.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>赤峰市    永业广场</p>
+            <p class="iconcity2"><i>终</i>北京市    望京西-地铁站</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">150</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">7</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/8053.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >神州任你游</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>唐山市    乐亭汽车客运站</p>
+                <p class="iconcity2"><i>终</i>秦皇岛市    九龙山火车站</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >19</td>
+            <td height="50" align="center" >4</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/9212.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>北京市    北京站</p>
+            <p class="iconcity2"><i>终</i>西安市    西安站</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">中级私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">200</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">5</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/9466.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>北京市    北京站</p>
+                <p class="iconcity2"><i>终</i>南宁市    南宁站</p>
+            </td>
+            <td height="50" align="center" >14:00</td>
+            <td height="50" align="center" >中级私家车</td>
+            <td height="50" align="center" >400</td>
+            <td height="50" align="center" >5</td>
+            <td height="50" align="center" >桂林市,柳州市</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/9467.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>上海市    大湾名苑</p>
+            <p class="iconcity2"><i>终</i>宿州市    朝阳镇</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">14:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">出租车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">200</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">已满</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/9576.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>广安市    广安思源广场</p>
+                <p class="iconcity2"><i>终</i>成都市    十陵客运站</p>
+            </td>
+            <td height="50" align="center" >14:30</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >100</td>
+            <td height="50" align="center" >4</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/8283.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>西安市    九如御小区</p>
+            <p class="iconcity2"><i>终</i>深圳市    华强北</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">15:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">中级私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">500</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">2</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/2071.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>昭通市    彝良客运站</p>
+                <p class="iconcity2"><i>终</i>宜宾市    长宁竹海客运中心</p>
+            </td>
+            <td height="50" align="center" >15:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >90</td>
+            <td height="50" align="center" >6</td>
+            <td height="50" align="center" >昭通市</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/2279.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>重庆市    开县人民医院</p>
+            <p class="iconcity2"><i>终</i>茂名市    体育路</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">15:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">中级私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">280</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/3985.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>北京市    苏庄-地铁站</p>
+                <p class="iconcity2"><i>终</i>邢台市    高速路南口-公交站</p>
+            </td>
+            <td height="50" align="center" >15:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >90</td>
+            <td height="50" align="center" >4</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/6091.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr><tr>
+        <td height="50" align="center" bgcolor="#FFFFFF"><img src="images/face.jpg" class="face80" /></td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" bgcolor="#FFFFFF">
+            <p class="iconcity"><i>起</i>太原市    小马村</p>
+            <p class="iconcity2"><i>终</i>邯郸市    武安汽车站</p>
+        </td>
+        <td height="50" align="center" bgcolor="#FFFFFF">15:00</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">100</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">6</td>
+        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/6200.html" class="ccolor btn"><font>预定</font></a></td>
+    </tr>
+        <tr>
+            <td height="50" align="center" ><img src="images/face.jpg" class="face80" /></td>
+            <td height="50" align="center" >无</td>
+            <td height="50" >
+                <p class="iconcity"><i>起</i>北京市    望京西-地铁站</p>
+                <p class="iconcity2"><i>终</i>赤峰市    松山供水</p>
+            </td>
+            <td height="50" align="center" >15:00</td>
+            <td height="50" align="center" >舒适私家车</td>
+            <td height="50" align="center" >150</td>
+            <td height="50" align="center" >7</td>
+            <td height="50" align="center" >无</td>
+            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" ><a style="width:80px" href="html/view/id/7446.html" class="ccolor btn"><font>预定</font></a></td>
+        </tr></table>
+    <p style="width:100%; text-align:center"><a href="html/chepiao.html" class="ccolor btn"><font>查看更多数据</font></a></p>
+</div>
+<script>
+    function showday(day,week){
+        $("#gotime").val(day);
+        $(".piao dt").find("a").removeClass("ri2",500).find("font").html('');
+        $("#day"+day).addClass("ri2",1000).find("font").html(week);
+        var data = {};
+        data['gocity'] = "";
+        data['endcity'] = "";
+        data['gotime'] = day;
+        data['car'] = "";
+        $.post("html/geturl.html",{model:'chepiao',data:data},function(v){
+            setTimeout(function(){
+                location.href= v.url;
+            },1000);
+        },'json');
+    }
+    $(document).ready(function(e) {
+        $(".allcar").click(function(){
+            var allcar = [];
+            $(".allcar input:checked").each(function(index, element) {
+                var thisv = $(this).val();
+                allcar.push(thisv);
+            });
+            var newcar = allcar.join(',');
+            if(allcar){
+                var data = {};
+                data['gocity'] = "";
+                data['endcity'] = "";
+                data['gotime'] = "";
+                data['car'] = newcar;
+                $.post("html/geturl.html",{model:'chepiao',data:data},function(v){
+                    location.href= v.url;
+                },'json');
+            }
+        });
+    });
+</script>
+<!--------------汽车票预定完-------------------------->
+<div class="footer">
+    <div class="wrap san">
+        <dl>
+            <dt>关于我们</dt>
+            <dd><a href="html/about/id/3.html" class="ccolor"><font>关 于 一 喂</font></a></dd><dd><a href="html/about/id/2.html" class="ccolor"><font>联    系    我    们</font></a></dd><dd><a href="html/about/id/4.html" class="ccolor"><font>一    喂    直    达</font></a></dd>        </dl><dl>
+        <dt>使用需知</dt>
+        <dd><a href="html/about/id/6.html" class="ccolor"><font>身    份    认    证</font></a></dd><dd><a href="html/about/id/7.html" class="ccolor"><font>保  证  金  说  明</font></a></dd><dd><a href="html/about/id/9.html" class="ccolor"><font>价    格    说    明</font></a></dd>        </dl><dl>
+        <dt>退票和改签</dt>
+        <dd><a href="html/about/id/13.html" class="ccolor"><font>司机退票</font></a></dd><dd><a href="html/about/id/14.html" class="ccolor"><font>乘客退票</font></a></dd><dd><a href="html/about/id/15.html" class="ccolor"><font>乘客改签</font></a></dd>        </dl>    	<dl style="width:25%; margin:inherit">
+        <dt>客户端</dt>
+        <dd></dd>
+    </dl>
+    </div>
+    <div class="clear"></div>
+    <p style="text-align:center; padding-top:40px">Copyright © 2016 杭州一喂智能科技有限公司 浙ICP备14027117号</p>
+</div>
+<div id="dialog-message"><p></p></div>
+<script>
+    $(document).ready(function(e) {
+        //统一按钮
+        $(".ccolor").hover(function(){
+            $(this).find("font").addClass("huang",500);
+        },function(){
+            $(this).find("font").removeClass("huang",500);
+        });
+
+    });
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257387226'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257387226' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
