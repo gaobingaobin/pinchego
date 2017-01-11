@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xmlns:th="http://www.thymeleaf.org">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -37,17 +38,19 @@
             <a href="#"><img src="../images/auth_2.png" alt=""/></a>
             <a href="#"><img src="../images/auth_3.png" alt=""/></a>
         </div-->
+
         <div class="login">
             <a href="register" class="ccolor"><font><i class="iconfont">&#xe606;</i>注册</font></a>
             <span>|</span>
             <a href="login" class="ccolor"><font><i class="iconfont">&#xe677;</i>登陆</font></a>
+            <!--  <a href="loginOut" class="ccolor"><font><i class="iconfont" th:unless='${session.currentUser}'>&#xe677;</i>退出</font></a>-->
         </div>
     </div>
 </div>
 <div class="header">
     <div class="wrap clearfix">
         <div class="logo">
-           <!-- <a href="#"><img src="../images/logo.png" alt=""/></a>-->
+            <a href="#"><img src="../images/logo.png" alt=""/></a>
         </div>
         <div class="publish">
             <a href="/home/center/fabupinche.html" class="btn-publish ccolor"><font>发布拼车信息</font></a>
@@ -99,17 +102,16 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <link href="../css/input.css" rel="stylesheet" type="text/css" />
 <div class="wrap">
-    <form class="login-form" action="login.html" method="post">
+    <form class="login-form" action="loginIn" method="post" id="loginForm">
         <dl class="logink">
+            <div id="error"><font th:text="${loginMassage}" style="color: red"></font></div>
             <dt style="padding-bottom:5px"><i class="iconfont">&#xe606;</i>登陆</dt>
-            <dd><label>手    机：</label><input type="text" name="username" autocomplete="off" autofocus="autofocus"/></dd>
-            <dd><label>密    码：</label><input type="password" name="password"/></dd>
-            <dd><label>验    证：</label><input type="text" name="verify" style="min-width:100px; margin-right:10px"/><img class="verifyimg reloadverify" alt="点击切换" src="verify.html" style="cursor:pointer;"></dd>
-            <dd class="btnk"><button type="submit" class="btn ccolor"><font>确定</font></button></dd>
+            <dd><label>手    机：</label><input type="text" name="username" id="username" autocomplete="off" autofocus="autofocus"/></dd>
+            <dd><label>密    码：</label><input type="password" name="password" id="password"/></dd>
+            <dd class="btnk"><button type="button" class="btn ccolor" onclick="loginIn()"><font>登录</font></button></dd>
         </dl>
     </form>
     <script type="text/javascript">
-
         $(document)
                 .ajaxStart(function(){
                     $("button:submit").addClass("log-in").attr("disabled", true);
@@ -119,26 +121,13 @@
                 });
 
 
-        $("form").submit(function(){
-            var self = $(this);
-            $.post(self.attr("action"), self.serialize(), success, "json");
-            return false;
-
-            function success(data){
-                if(data.status){
-                    ui.success(data.info);
-                    setTimeout(function(){
-                        window.location.href = data.url;
-                    },1500);
-                } else {
-                    //self.find(".Validform_checktip").text(data.info);
-                    ui.error(data.info);
-                    //刷新验证码
-                    $(".reloadverify").click();
-                }
-            }
-        });
-
+      function loginIn() {
+          var username = $("#username").val();
+          var password = $("#password").val();
+          if(!checkTip(username,'username','请填写手机号码！')){return false};
+          if(!checkTip(password,'password','请填写密码！')){return false};
+          $("#loginForm").submit();
+      }
         $(function(){
             var verifyimg = $(".verifyimg").attr("src");
             $(".reloadverify").click(function(){
@@ -179,6 +168,8 @@
 
     });
 </script>
+<script src="../js/jquery.tips.js"></script>
+<script src="../js/util.js"></script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257387226'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257387226' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

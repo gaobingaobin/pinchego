@@ -28,7 +28,7 @@ class User {
     /**
      * 密码
     */
-    @Column(length = 32, nullable = false)
+    @Column(length = 128, nullable = false)
     String password
     /**
      * 邮箱

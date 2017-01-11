@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-us" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible"content="IE=9; IE=8; IE=7; IE=EDGE" />
@@ -38,16 +39,17 @@
             <a href="#"><img src="../images/auth_3.png" alt=""/></a>
         </div-->
         <div class="login">
-        <a href="/register" class="ccolor"><font><i class="iconfont">&#xe606;</i>注册</font></a>
-        <span>|</span>
-        <a href="/login" class="ccolor"><font><i class="iconfont">&#xe677;</i>登陆</font></a>
-    </div>
+            <a href="register" class="ccolor"><font><i class="iconfont">&#xe606;</i>注册</font></a>
+            <span>|</span>
+            <a href="login" class="ccolor"><font><i class="iconfont">&#xe677;</i>登陆</font></a>
+            <!--  <a href="loginOut" class="ccolor"><font><i class="iconfont" th:unless='${session.currentUser}'>&#xe677;</i>退出</font></a>-->
+        </div>
     </div>
 </div>
 <div class="header">
     <div class="wrap clearfix">
         <div class="logo">
-           <!-- <a href="#"><img src="../images/logo.png" alt=""/></a>-->
+            <a href="#"><img src="../images/logo.png" alt=""/></a>
         </div>
         <div class="publish">
             <a href="/home/center/fabupinche.html" class="btn-publish ccolor"><font>发布拼车信息</font></a>

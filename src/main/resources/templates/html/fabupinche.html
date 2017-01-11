@@ -1,0 +1,572 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>
+    <link href="../css/jquery-ui.css" rel="stylesheet">
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/kuoer.js"></script>
+    <link href="../css/box.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/core.js"></script>
+    <script src="../js/ui.core.js"></script>
+    <script src="../js/ui.draggable.js"></script>
+    <script src="../js/box.js"></script>
+    <script src="../js/address.js"></script>
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/tachyons.css">
+    <link rel="stylesheet" href="../css/pikaddress.css"/>
+    <script src="./js/pikaddress.js"></script>
+    <title>【拼车网|拼车|顺风车|长途拼车】，中国长途拼车网</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1ac9530d5ddfdb958e7025d2ae3c1d9a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <meta content="拼车网，拼车，顺风车，拼车回家，长途拼车，汽车票，搭车，拼车go" name="Keywords">
+    <meta name="description"
+          content="拼车go可在线预定全国各地的长途拼车和顺风车汽车票，包括私家车汽车票，大巴汽车票。当您需要长途拼车或拼车回家时，拼车go网始终是您拼车合乘、搭顺风车的最佳选择。"/>
+    <meta name="chromesniffer" id="chromesniffer_meta"
+          content="{&quot;百度统计&quot;:-1,&quot;jQuery&quot;:&quot;1.7.1&quot;,&quot;jQuery UI&quot;:&quot;1.11.4&quot;}">
+    <script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script>
+</head>
+<body>
+<div class="top">
+    <div class="wrap clearfix">
+        <div class="tel">
+            全国免费客服电话：400-005-1331
+        </div>
+        <div class="login">
+            <a href="/home/center/index.html" class="ccolor"><font class=""><i class="iconfont">󰂻</i>个人中心</font></a>
+            <span>|</span>
+            <a href="/home/user/logout.html" class="ccolor" style="color:#C30"><font><i class="iconfont">󰅼</i>退出</font></a>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="wrap clearfix">
+        <div class="logo">
+            <a href="#"><img src="../images/logo.png" alt=""></a>
+        </div>
+        <div class="publish">
+            <a href="/fabupinche" class="btn-publish ccolor"><font class="">发布拼车信息</font></a>
+            <p>今日线路：<span>21542</span></p>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <div class="wrap" style="position:relative">
+        <ul id="nav">
+            <li><a href="../" class="hover">首 页</a></li>
+            <li><a href="/chepiao">汽车票预定</a></li>
+            <li><a href="about/id/2.html">联系我们</a></li>
+        </ul>
+        <div id="car" style="position: absolute; left: 159px; height: 40px; z-index: 0;"><img src="../images/car.gif">
+        </div>
+    </div>
+</div>
+<script>
+    var init = "1";
+    var w = 159;
+    init = init > 0 ? init : 0;
+    var now = init;
+    var gogo = 0;
+    $("#nav li").hover(function () {
+        gogo = 0;
+        var num = $(this).index();
+        var cha = num - now;
+        cha = cha < 0 ? 0 - cha : cha;
+        var jl = num * w;
+        now = num;
+        $("#car").animate({left: jl}, 200 * cha);
+        $("#nav li").find("a").removeClass("hover", 500);
+        $(this).find("a").addClass("hover", 1000);
+    }, function () {
+        gogo = 1;
+        var num = $(this).index();
+        var jl = w * init;
+        setTimeout(function () {
+            if (gogo == 1) {
+                $("#car").animate({left: jl}, 200 * num);
+                $("#nav li").find("a").removeClass("hover", 500);
+                $("#nav li:eq(" + init + ")").find("a").addClass("hover", 1000);
+                now = init;
+            }
+        }, 1000);
+    });
+</script>
+
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&amp;key=YDLBZ-ELE34-7DWUZ-D4I46-MF2PJ-AZF7O"></script>
+<script src="http://open.map.qq.com/apifiles/2/4/43/main.js" type="text/javascript"></script>
+<div class="wrap">
+    <form class="login-form" action="/fabupinche" method="post">
+        <input type="hidden" name="id" value="">
+        <dl class="logink" style="width:70%; min-width:800px">
+            <dt><i class="iconfont"></i>发布拼车信息</dt>
+            <dd><p style="border:#DDCAB7 1px solid; padding:10px; background:#F1EFEB"><strong
+                    style="color:#F00">发布提示：</strong>您的身份未审核，审核后能够提升用户信任度，如需认证请至<a href="/home/center/ver.html">个人中心</a>进行认证
+            </p></dd>
+            <dd style="position:relative">
+                <ul class="mapadd" id="goaddlist"></ul>
+                <label>出 发 城 市：</label>
+                <input type="text" id="startAddress" name="startAddress">
+            </dd>
+            <dd style="position:relative">
+                <ul class="mapadd" id="endaddlist"></ul>
+                <label>到 达 城 市：</label>
+                <input type="text" id="endAddress" name="endAddress">
+            </dd>
+            <dd style="position:relative">
+                <label>出 发 日 期：</label>
+                <select name="godaytype" onchange="changeday(this.value)">
+                    <option value="1">仅一次</option>
+                    <option value="2">重复</option>
+                </select>
+            <span id="day2" style="display:none">
+            	<label for="x1"><input type="checkbox" value="1" id="x1" name="goday2[]">每周一</label>
+            	<label for="x2"><input type="checkbox" value="2" id="x2" name="goday2[]">每周二</label>
+            	<label for="x3"><input type="checkbox" value="3" id="x3" name="goday2[]">每周三</label>
+            	<label for="x4"><input type="checkbox" value="4" id="x4" name="goday2[]">每周四</label>
+            	<label for="x5"><input type="checkbox" value="5" id="x5" name="goday2[]">每周五</label>
+            	<label for="x6"><input type="checkbox" value="6" id="x6" name="goday2[]">每周六</label>
+            	<label for="x7"><input type="checkbox" value="7" id="x7" name="goday2[]">每周日</label>
+            </span>
+                <select name="goday" id="day1">
+                    <option value="01-10">01-10 今天</option>
+                    <option value="01-11">01-11 明天</option>
+                    <option value="01-12">01-12 后天</option>
+                    <option value="01-13">01-13 周五</option>
+                    <option value="01-14">01-14 周六</option>
+                    <option value="01-15">01-15 周日</option>
+                    <option value="01-16">01-16 周一</option>
+                    <option value="01-17">01-17 周二</option>
+                    <option value="01-18">01-18 周三</option>
+                    <option value="01-19">01-19 周四</option>
+                    <option value="01-20">01-20 周五</option>
+                    <option value="01-21">01-21 周六</option>
+                    <option value="01-22">01-22 周日</option>
+                    <option value="01-23">01-23 周一</option>
+                    <option value="01-24">01-24 周二</option>
+                </select>
+                <script>
+                    function changeday(val) {
+                        if (val == 1) {
+                            $("#day1").show();
+                            $("#day2").hide();
+                        } else {
+                            $("#day2").show();
+                            $("#day1").hide();
+                        }
+                    }
+                </script>
+            </dd>
+            <dd style="position:relative">
+                <label>出 发 时 间：</label>
+                <select name="gotime[]">
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15" selected="selected">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>点
+                <select name="gotime[]">
+                    <option value="00">00</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>分
+            </dd>
+            <dd><label>车 辆 类 型：</label>
+                <select name="car">
+                    <option value="">请选择</option>
+                    <option value="舒适私家车">舒适私家车: 裸车20万以下</option>
+                    <option value="中级私家车">中级私家车: 裸车20-80万</option>
+                    <option value="豪华私家车">豪华私家车: 裸车80万以上</option>
+                    <option value="出租车">出租车</option>
+                    <option value="豪华大巴座位">豪华大巴座位</option>
+                    <option value="豪华大巴卧铺">豪华大巴卧铺</option>
+                    <option value="普通大巴">普通大巴</option>
+                </select>
+            </dd>
+            <dd><label>提供座位数：</label><input type="text" name="personNum" style="min-width:100px;" placeholder="座位数">个
+            </dd>
+            <dd><label>座 位 单 价：</label><input type="text" name="amount" style="min-width:100px; margin-right:10px"
+                                              onfocus="setpay()" placeholder="不得超出建议价的±50%">元 <font color="#999999"
+                                                                                                    style="padding-left:10px"
+                                                                                                    id="baojiazhuyi"></font>
+                <input type="hidden" id="juli" name="juli">
+                <input type="hidden" id="shijian" name="shijian">
+                <input type="hidden" id="xitongpay" name="xitongpay">
+            </dd>
+            <dd style="margin:10px 0px; " id="viainit">
+                <label>途 经 城 市：</label>
+                <a href="javascript:;" onclick="zhanvia()"><i class="iconfont" style="font-size: 20px">+</i>添加途经城市</a>
+            </dd>
+            <dd style="position:relative; display:none" id="viaadd1">
+                <ul class="mapadd" id="via1addlist"></ul>
+                <label>途 经 城 市：</label>
+                <input type="text" id="middleAddress_A" name="middleAddress_A">
+                <input type="text" name="amount_A" id="amount_A" style="min-width:50px; width:50px; margin:0px 10px"
+                       placeholder="价格">元
+                <a class="iconfont" style="margin:0px 10px; color:#F00;font-size: 20px" href="javascript:;"
+                   onclick="dell(1)">-</a>
+                <a class="iconfont" href="javascript:;" onclick="add(2)" id="jia1" style="font-size: 20px">+</a>
+            </dd>
+            <dd style="position:relative; display:none" id="viaadd2">
+                <ul class="mapadd" id="via2addlist"></ul>
+                <label>途 经 城 市：</label>
+                <input type="text" id="middleAddress_B" name="middleAddress_B">
+                <input type="text" name="amount_B" id="amount_B" style="min-width:50px; width:50px; margin:0px 10px"
+                       placeholder="价格">元
+                <a class="iconfont" style="margin:0px 10px; color:#F00;font-size: 20px" href="javascript:;"
+                   onclick="dell(2)">-</a>
+                <a class="iconfont" href="javascript:;" onclick="add(3)" style="font-size: 20px"
+                   id="jia2">+</a>
+            </dd>
+            <dd style="position:relative; display:none" id="viaadd3">
+                <ul class="mapadd" id="via3addlist"></ul>
+                <label>途 经 城 市：</label>
+                <input type="text" id="middleAddress_C" name="middleAddress_C">
+                <input type="text" name="amount_C" id="amount_C" style="min-width:50px; width:50px; margin:0px 10px"
+                       placeholder="价格">元
+                <a class="iconfont" style="margin:0px 10px; color:#F00;font-size: 20px" href="javascript:;"
+                   onclick="dell(3)">-</a>
+            </dd>
+            <dd>
+                <label style="position:relative; ">其它说明：</label>
+                <textarea name="content" style="width:500px; height:100px"></textarea>
+            </dd>
+            <dd class="btnk" style="margin-top:40px">
+                <button type="submit" class="btn ccolor"><font>确定</font></button>
+            </dd>
+        </dl>
+        <div style="display:none" id="container"></div>
+    </form>
+    <script>
+        $(function () {
+            // get districs data
+            $.ajax('data/distric.json')
+                    .done(function (data) {
+                                var districs = data;
+                                aaPcdPicker1 = new AAPcdPicker({
+                                    field: document.getElementById('startAddress'),
+                                    districtsData: districs,
+                                    districtsOften: ["北京-北京", "江苏-南京", "天津-天津", "江苏-常州"],
+                                    onSelectDone: function () {
+                                        $('#startAddress').val(aaPcdPicker1._o.district);
+                                        aaPcdPicker1.hide();
+                                    }
+                                });
+                                aaPcdPicker2 = new AAPcdPicker({
+                                    field: document.getElementById('endAddress'),
+                                    districtsData: districs,
+                                    districtsOften: ["北京-北京", "江苏-南京", "天津-天津", "江苏-常州"],
+                                    onSelectDone: function () {
+                                        $('#endAddress').val(aaPcdPicker2._o.district);
+                                        aaPcdPicker2.hide();
+                                    }
+                                });
+                                aaPcdPicker3 = new AAPcdPicker({
+                                    field: document.getElementById('middleAddress_A'),
+                                    districtsData: districs,
+                                    districtsOften: ["北京-北京", "江苏-南京", "天津-天津", "江苏-常州"],
+                                    onSelectDone: function () {
+                                        $('#middleAddress_A').val(aaPcdPicker3._o.district);
+                                        aaPcdPicker2.hide();
+                                    }
+                                });
+                                aaPcdPicker2 = new AAPcdPicker({
+                                    field: document.getElementById('middleAddress_B'),
+                                    districtsData: districs,
+                                    districtsOften: ["北京-北京", "江苏-南京", "天津-天津", "江苏-常州"],
+                                    onSelectDone: function () {
+                                        $('#middleAddress_B').val(aaPcdPicker2._o.district);
+                                        aaPcdPicker2.hide();
+                                    }
+                                });
+                                aaPcdPicker2 = new AAPcdPicker({
+                                    field: document.getElementById('middleAddress_C'),
+                                    districtsData: districs,
+                                    districtsOften: ["北京-北京", "江苏-南京", "天津-天津", "江苏-常州"],
+                                    onSelectDone: function () {
+                                        $('#middleAddress_C').val(aaPcdPicker2._o.district);
+                                        aaPcdPicker2.hide();
+                                    }
+                                });
+
+                            }
+                    );
+        });
+        var oldgolatlng, oldendlatlng;
+        function zhanvia() {
+            $("#viainit").slideUp(function () {
+                $("#viaadd1").slideDown();
+            });
+        }
+        function add(v) {
+            $("#viaadd"+v).slideDown();
+        }
+       function dell(v) {
+           var id = "#viaadd"+v
+           $(id).slideUp(function () {
+               $(id+" input").each(function (index, element) {
+                   $(this).val('');
+               });
+               var dis1 = $("#viaadd1").css("display");
+               var dis2 = $("#viaadd2").css("display");
+               var dis3 = $("#viaadd3").css("display");
+               if (dis1 == 'none' && dis2 == 'none' && dis3 == 'none') $("#viainit").slideDown();
+           });
+       }
+    </script>
+
+    <script type="text/javascript">
+        var map = null;
+        var drivingService = null;
+        var isFirst = 0;
+        var initmap = function (golat, golng, endlat, endlng) {
+            var center = new qq.maps.LatLng(39.916527, 116.397128);
+            map = new qq.maps.Map(document.getElementById('container'), {
+                center: center,
+                zoom: 10
+            });
+            //自动补全地址
+            //设置驾车路线规划
+            drivingService = new qq.maps.DrivingService({
+                location: "北京",
+                map: map
+            });
+            getResult(golat, golng, endlat, endlng);
+        }
+        function getResult(golat, golng, endlat, endlng) {
+
+            //设置searchRequest
+            var start = new qq.maps.LatLng(golat, golng);
+            var end = new qq.maps.LatLng(endlat, endlng);
+
+            drivingService.search(start, end);
+
+            //设置回调函数
+            drivingService.setComplete(function (result) {
+                if (result.type == qq.maps.ServiceResultType.MULTI_DESTINATION) {
+                    alert("起终点不唯一");
+                }
+            });
+
+
+            //获取距离
+            drivingService.setComplete(function (result) {
+                var car = $("select[name='car']").val();
+                $.post("/home/index/formatjl.html", {
+                    car: car,
+                    juli: result.detail.distance,
+                    shijian: result.detail.duration
+                }, function (v) {
+                    $("#juli").val(v.juli);
+                    $("#shijian").val(v.shijian);
+                    $("#xitongpay").val(v.pay);
+                    $("#baojiazhuyi").html('总距离：<font color="color:#63F">' + v.juli + '</font>公里，约<font color="color:#63F">' + v.shijian + '</font>到达，建议价格<font color="color:#63F">' + v.pay + '</font>元');
+                }, 'json');
+            });
+        }
+
+
+        function setpay() {
+            var golat = $("#golat").val();
+            var golng = $("#golng").val();
+            var endlat = $("#endlat").val();
+            var endlng = $("#endlng").val();
+            var car = $("select[name='car']").val();
+            if (!car) {
+                ui.error('请选择车型');
+                return false;
+            }
+            if (!golng || !golat || !endlng || !endlat) {
+                ui.error('请选择起点与终点地址');
+                $("input[name='seat']").focus();
+                return;
+            }
+            var nowgolatlng = golat + ',' + golng;
+            var nowendlatlng = endlat + ',' + endlng;
+            if (nowgolatlng != oldgolatlng || nowendlatlng != oldendlatlng) {
+                $("#baojiazhuyi").html('正在计算...');
+                oldgolatlng = nowgolatlng;
+                oldendlatlng = nowendlatlng;
+                initmap(golat, golng, endlat, endlng);
+            }
+        }
+        $("form").submit(function () {
+            var self = $(this);
+            $.post(self.attr("action"), self.serialize(), success, "json");
+            return false;
+
+            function success(data) {
+                if (data.status) {
+                    ui.success('发布成功');
+                    setTimeout(function () {
+                        window.location.href = "/home/center/paydanbao.html?id=" + data.info;
+                    }, 1500);
+                } else {
+                    //self.find(".Validform_checktip").text(data.info);
+                    //刷新验证码
+                    ui.error(data.info);
+
+                }
+            }
+        });
+
+
+        var nowsearch = '';
+        var cha;
+        function searchadd(who) {
+            var shi = $("select[name='" + who + "city']").val();
+            if (!shi) {
+                ui.error('请选择所在地区');
+                return false;
+            }
+            $("#" + who + "addlist").html('').hide();
+            cha = setInterval(function () {
+                var searchtxt = $("input[name='" + who + "biao']").val();
+                var city = $("select[name='" + who + "city']").val();
+                if (searchtxt) {
+                    if (nowsearch != searchtxt) {
+                        $("#" + who + "lat").val('');
+                        $("#" + who + "lng").val('');
+                        $.post("/home/index/searchmap.html", {txt: searchtxt, city: city}, function (v) {
+                            nowsearch = searchtxt;
+                            var data = v.data;
+                            var html = '';
+                            for (var i = 0; i < data.length; i++) {
+                                html += '<li style="padding:5px; border:1px solid dashed; cursor:pointer;" onclick="setadd(\'' + who + '\',\'' + data[i]['title'] + '\',\'' + data[i]['address'] + '\',\'' + data[i]['location']['lat'] + '\',\'' + data[i]['location']['lng'] + '\')">' + data[i]['title'] + '<p style="font-size:11px; color:#999">' + data[i]['address'] + '</p></li>';
+                            }
+                            if (html) $("#" + who + "addlist").html(html).show();
+                        }, 'json');
+                    }
+                }
+            }, 500);
+        }
+        function endsearch(who) {
+            clearInterval(cha);
+            setTimeout(function () {
+                if (who == 'go') {
+                    var whoname = '出发';
+                } else if (who == 'end') {
+                    var whoname = '目的地';
+                } else {
+                    var whoname = '途经城市';
+                }
+                var lat = $("#" + who + "lat").val();
+                if (!lat) {
+                    $("#" + who + "biao").val('');
+                    $("#" + who + "addlist").hide();
+                    //	ui.error('请选择'+whoname+'地址');
+                }
+            }, 500);
+        }
+        function setadd(who, title, add, lat, lng) {
+            clearInterval(cha);
+            $("#" + who + "addlist").hide().html('');
+            title = title ? title : add;
+            $("input[name='" + who + "biao']").val(title);
+            $("input[name='" + who + "add']").val(add);
+            $("#" + who + "lat").val(lat);
+            $("#" + who + "lng").val(lng);
+            $("#" + who + "biao").blur();
+        }
+
+
+        function getshi(sheng, who) {
+            if (sheng) {
+                $.post("/home/index/getshilist.html", {sheng: sheng}, function (v) {
+                    if (v.status) {
+                        var list = v.list;
+                        var html = '';
+                        for (var i = 0; i < list.length; i++) {
+                            html += '<option value="' + list[i]['name'] + '">' + list[i]['name'] + '</option>';
+                        }
+                        $("select[name=" + who + "city]").html(html).show();
+                        $("input[name=" + who + "biao]").show();
+                    }
+                }, 'json');
+            }
+        }
+
+    </script>
+</div>
+<div class="footer">
+    <div class="wrap san">
+        <dl>
+            <dt>关于我们</dt>
+            <dd><a href="/home/index/about/id/3.html" class="ccolor"><font>关 于 一 喂</font></a></dd>
+            <dd><a href="/home/index/about/id/2.html" class="ccolor"><font>联 系 我 们</font></a></dd>
+            <dd><a href="/home/index/about/id/4.html" class="ccolor"><font>一 喂 直 达</font></a></dd>
+        </dl>
+        <dl>
+            <dt>使用需知</dt>
+            <dd><a href="/home/index/about/id/6.html" class="ccolor"><font>身 份 认 证</font></a></dd>
+            <dd><a href="/home/index/about/id/7.html" class="ccolor"><font>保 证 金 说 明</font></a></dd>
+            <dd><a href="/home/index/about/id/9.html" class="ccolor"><font>价 格 说 明</font></a></dd>
+        </dl>
+        <dl>
+            <dt>退票和改签</dt>
+            <dd><a href="/home/index/about/id/13.html" class="ccolor"><font>司机退票</font></a></dd>
+            <dd><a href="/home/index/about/id/14.html" class="ccolor"><font>乘客退票</font></a></dd>
+            <dd><a href="/home/index/about/id/15.html" class="ccolor"><font>乘客改签</font></a></dd>
+        </dl>
+        <dl style="width:25%; margin:inherit">
+            <dt>客户端</dt>
+            <dd></dd>
+        </dl>
+    </div>
+    <div class="clear"></div>
+    <p style="text-align:center; padding-top:40px">Copyright © 2017 杭州一喂智能科技有限公司 浙ICP备14027117号</p>
+</div>
+<div id="dialog-message"><p></p></div>
+<script>
+    $(document).ready(function (e) {
+        //统一按钮
+        $(".ccolor").hover(function () {
+            $(this).find("font").addClass("huang", 500);
+        }, function () {
+            $(this).find("font").removeClass("huang", 500);
+        });
+
+    });
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1257387226'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257387226' type='text/javascript'%3E%3C/script%3E"));</script>
+<span id="cnzz_stat_icon_1257387226"><a href="http://www.cnzz.com/stat/website.php?web_id=1257387226" target="_blank"
+                                        title="站长统计">站长统计</a></span>
+<script src=" http://s11.cnzz.com/z_stat.php?id=1257387226" type="text/javascript"></script>
+<script src="http://c.cnzz.com/core.php?web_id=1257387226&amp;t=z" charset="utf-8" type="text/javascript"></script>
+
+</body>
+</html>

@@ -52,15 +52,14 @@ class CarpoolInfo {
     /**
      * 出发时间
     */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    Date startDate
+
+    @Column(length = 32,nullable = false)
+    String startDate
     /**
      * 返回时间
      */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = true)
-    Date returnDate
+    @Column(length = 32,nullable = false)
+     String returnDate
     /**
      * 车型
      */
@@ -72,10 +71,30 @@ class CarpoolInfo {
     @Column(length = 12, nullable = true)
     Integer personNum
     /**
-    * 费用
+    * 目的地费用
     */
     @Column(length = 24,nullable = false)
     Double amount
+    /**
+     * 途径A地费用
+     */
+    @Column(length = 24,nullable = false)
+    Double amount_A
+    /**
+     * 途径B地费用
+     */
+    @Column(length = 24,nullable = false)
+    Double amount_B
+    /**
+     * 途径C地费用
+     */
+    @Column(length = 24,nullable = false)
+    Double amount_C
+    /**
+     * 途径D地费用
+     */
+    @Column(length = 24,nullable = false)
+    Double amount_D
     /**
      * 备注
      */
