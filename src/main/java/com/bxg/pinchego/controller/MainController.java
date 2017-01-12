@@ -1,10 +1,13 @@
 package com.bxg.pinchego.controller;
 
 import com.bxg.pinchego.Util.sha1Util;
+import com.bxg.pinchego.model.CarpoolInfo;
 import com.bxg.pinchego.model.User;
+import com.bxg.pinchego.repository.CarpoolInfoRepository;
 import com.bxg.pinchego.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author gaobin
@@ -22,9 +26,13 @@ import java.util.Date;
 public class MainController {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    CarpoolInfoRepository carpoolInfoRepository;
 
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
+        List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
+        model.addAttribute("arpoolInfoList",carpoolInfo);
         return "car";
     }
     @RequestMapping("/{pagename}")
@@ -75,6 +83,17 @@ public class MainController {
     @RequestMapping("/login")
     public String login(){
         return "html/login";
+    }
+    /**
+     * @author gaobin
+     * @createDate 2017/1/12
+     * @description 跳转车票预定页面
+    */
+    @RequestMapping("/chepiao")
+    public String chepiao(Model model){
+        List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
+        model.addAttribute("arpoolInfoList",carpoolInfo);
+        return "html/chepiao";
     }
 
 

@@ -25,7 +25,7 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <meta content="拼车网，拼车，顺风车，拼车回家，长途拼车，汽车票，搭车，一喂拼车" name="Keywords">
+    <meta content="拼车网，拼车，顺风车，拼车回家，长途拼车，汽车票，搭车，" name="Keywords">
     <meta name="description" content="拼车网可在线预定全国各地的长途拼车和顺风车汽车票，包括私家车汽车票，大巴汽车票。当您需要长途拼车或拼车回家时，拼车网始终是您拼车合乘、搭顺风车的最佳选择" />
 </head>
 <body>
@@ -52,7 +52,7 @@
             <a href="#"><img src="../images/logo.png" alt=""/></a>
         </div>
         <div class="publish">
-            <a href="center/fabupinche.html" class="btn-publish ccolor"><font>发布拼车信息</font></a>
+            <a href="fabupinche" class="btn-publish ccolor"><font>发布拼车信息</font></a>
             <p>今日线路：<span>21542</span></p>
         </div>
     </div>
@@ -354,152 +354,22 @@
             <th height="50" align="center" bgcolor="#00A1D9" width="80">保证金</th>
             <th height="50" align="center" bgcolor="#00A1D9" width="80">预定</th>
         </tr>
-        <tr>
+        <tr th:each="carpoolInfo,carpoolInfoStat:${arpoolInfoList}">
             <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
             <td height="50" align="center" bgcolor="#FFFFFF">无</td>
             <td height="50" bgcolor="#FFFFFF">
-                <p class="iconcity"><i>起</i>北京市    丰台南路-地铁站</p>
-                <p class="iconcity2"><i>终</i>周口市    周口客运中心站</p>
+                <p class="iconcity" ><i>起</i><span th:text="${carpoolInfo.startAddress}"></span></p>
+                <p class="iconcity2"><i>终</i><span th:text="${carpoolInfo.endAddress}"></span></p>
             </td>
-            <td height="50" align="center" bgcolor="#FFFFFF">15:30</td>
-            <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
-            <td height="50" align="center" bgcolor="#FFFFFF">210</td>
-            <td height="50" align="center" bgcolor="#FFFFFF">6</td>
-            <td height="50" align="center" bgcolor="#FFFFFF">邯郸市,邢台市</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.startDate}">15:30</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.carType}">舒适私家车</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.amount}">210</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.personNum}">6</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  >无</td>
+            <td height="50" align="center" bgcolor="#FFFFFF"  ><font color="#f30000"><strong>未担保</strong></font></td>
             <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/4917.html" class="ccolor btn"><font>预定</font></a></td>
         </tr>
-        <tr>
-            <td height="50" align="center" ><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" >无</td>
-            <td height="50" >
-                <p class="iconcity"><i>起</i>长沙市    长沙南站</p>
-                <p class="iconcity2"><i>终</i>邵阳市    隆回汽车总站</p>
-            </td>
-            <td height="50" align="center" >15:30</td>
-            <td height="50" align="center" >舒适私家车</td>
-            <td height="50" align="center" >100</td>
-            <td height="50" align="center" >4</td>
-            <td height="50" align="center" >无</td>
-            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" ><a style="width:80px" href="html/view/id/6831.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr><tr>
-        <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" bgcolor="#FFFFFF">
-            <p class="iconcity"><i>起</i>北京市    西二旗-地铁站</p>
-            <p class="iconcity2"><i>终</i>大同市    新南公路客运站</p>
-        </td>
-        <td height="50" align="center" bgcolor="#FFFFFF">16:00</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">150</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/2980.html" class="ccolor btn"><font>预定</font></a></td>
-    </tr>
-        <tr>
-            <td height="50" align="center" ><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" >无</td>
-            <td height="50" >
-                <p class="iconcity"><i>起</i>深圳市    深圳市坑梓街道办</p>
-                <p class="iconcity2"><i>终</i>信阳市    罗山县人民医院</p>
-            </td>
-            <td height="50" align="center" >16:00</td>
-            <td height="50" align="center" >舒适私家车</td>
-            <td height="50" align="center" >250</td>
-            <td height="50" align="center" >2</td>
-            <td height="50" align="center" >无</td>
-            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" ><a style="width:80px" href="html/view/id/3023.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr><tr>
-        <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
-        <td height="50" align="center" bgcolor="#FFFFFF">神州任你游</td>
-        <td height="50" bgcolor="#FFFFFF">
-            <p class="iconcity"><i>起</i>秦皇岛市    北戴河火车站-进站口</p>
-            <p class="iconcity2"><i>终</i>秦皇岛市    九龙山火车站</p>
-        </td>
-        <td height="50" align="center" bgcolor="#FFFFFF">16:00</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">15</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/9235.html" class="ccolor btn"><font>预定</font></a></td>
-    </tr>
-        <tr>
-            <td height="50" align="center" ><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" >无</td>
-            <td height="50" >
-                <p class="iconcity"><i>起</i>烟台市    莱州市人民医院</p>
-                <p class="iconcity2"><i>终</i>淄博市    北京路</p>
-            </td>
-            <td height="50" align="center" >16:00</td>
-            <td height="50" align="center" >舒适私家车</td>
-            <td height="50" align="center" >65</td>
-            <td height="50" align="center" >4</td>
-            <td height="50" align="center" >淄博市</td>
-            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" ><a style="width:80px" href="html/view/id/9490.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr><tr>
-        <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" bgcolor="#FFFFFF">
-            <p class="iconcity"><i>起</i>合肥市    长江批发市场</p>
-            <p class="iconcity2"><i>终</i>亳州市    利辛县城北客运站</p>
-        </td>
-        <td height="50" align="center" bgcolor="#FFFFFF">16:00</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">舒适私家车</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">80</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">4</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/9963.html" class="ccolor btn"><font>预定</font></a></td>
-    </tr>
-        <tr>
-            <td height="50" align="center" ><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" >无</td>
-            <td height="50" >
-                <p class="iconcity"><i>起</i>天津市    北仓</p>
-                <p class="iconcity2"><i>终</i>濮阳市    南乐汽车站</p>
-            </td>
-            <td height="50" align="center" >16:20</td>
-            <td height="50" align="center" >舒适私家车</td>
-            <td height="50" align="center" >100</td>
-            <td height="50" align="center" >2</td>
-            <td height="50" align="center" >无</td>
-            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" ><a style="width:80px" href="html/view/id/1098.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr><tr>
-        <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
-        <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-        <td height="50" bgcolor="#FFFFFF">
-            <p class="iconcity"><i>起</i>天津市    塘沽站</p>
-            <p class="iconcity2"><i>终</i>德州市    庆云汽车站</p>
-        </td>
-        <td height="50" align="center" bgcolor="#FFFFFF">16:20</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">普通大巴</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">60</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">7</td>
-        <td height="50" align="center" bgcolor="#FFFFFF">沧州市,沧州市</td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><font color="#f30000"><strong>未担保</strong></font></td>
-        <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/6806.html" class="ccolor btn"><font>预定</font></a></td>
-    </tr>
-        <tr>
-            <td height="50" align="center" ><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" >无</td>
-            <td height="50" >
-                <p class="iconcity"><i>起</i>邢台市    邢台站</p>
-                <p class="iconcity2"><i>终</i>郑州市    郑州站西广场</p>
-            </td>
-            <td height="50" align="center" >16:30</td>
-            <td height="50" align="center" >中级私家车</td>
-            <td height="50" align="center" >80</td>
-            <td height="50" align="center" >4</td>
-            <td height="50" align="center" >无</td>
-            <td height="50" align="center" ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" ><a style="width:80px" href="html/view/id/10232.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr></table>
+    </table>
     <div class="page-field"><div>  <span class="current">1</span><a class="num" href="html/chepiao/p/2.html">2</a><a class="num" href="html/chepiao/p/3.html">3</a><a class="num" href="html/chepiao/p/4.html">4</a><a class="num" href="html/chepiao/p/5.html">5</a><a class="num" href="html/chepiao/p/6.html">6</a><a class="num" href="html/chepiao/p/7.html">7</a><a class="num" href="html/chepiao/p/8.html">8</a><a class="num" href="html/chepiao/p/9.html">9</a><a class="num" href="html/chepiao/p/10.html">10</a><a class="num" href="html/chepiao/p/11.html">11</a> <a class="next" href="html/chepiao/p/2.html">>></a> <a class="end" href="html/chepiao/p/12.html">12</a></div></div>
 </div>
 <script>
