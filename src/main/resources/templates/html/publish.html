@@ -54,7 +54,7 @@
             <a href="#"><img src="../images/logo.png" alt=""></a>
         </div>
         <div class="publish">
-            <a href="/fabupinche" class="btn-publish ccolor"><font class="">发布拼车信息</font></a>
+            <a href="/publish" class="btn-publish ccolor"><font class="">发布拼车信息</font></a>
             <p>今日线路：<span>21542</span></p>
         </div>
     </div>
@@ -360,10 +360,15 @@
                 data:{startAddress,endAddress,carType,personNum,amount,middleAddress_A,middleAddress_B,
                     middleAddress_B,amount_A,amount_B,amount_C,remark,startDate},
                 success:function (data) {
-                    alert('发布成功');
-                    setTimeout(function(){
-                        window.location.href ="/fabupinche";
-                    },1500);
+                    if(data=="success"){
+                        alert('发布成功');
+                        setTimeout(function(){
+                            window.location.href ="/fabupinche";
+                        },1500);
+                    }else if(data=="failed"){
+                        window.location.href ="/login";
+                    }
+
 
                 }
             })

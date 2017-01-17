@@ -1,5 +1,6 @@
 package com.bxg.pinchego.controller;
 
+import com.bxg.pinchego.Util.UserUtils;
 import com.bxg.pinchego.Util.sha1Util;
 import com.bxg.pinchego.model.CarpoolInfo;
 import com.bxg.pinchego.model.User;
@@ -94,6 +95,20 @@ public class MainController {
         List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
         model.addAttribute("arpoolInfoList",carpoolInfo);
         return "html/chepiao";
+    }
+    /**
+     * @author gaobin
+     * @createDate 2017/1/13
+     * @description 跳转拼车信息发布页面
+    */
+    @RequestMapping("/publish")
+    public String publishInfo(HttpSession session){
+        User user = UserUtils.getCurrentUser(session);
+        if(user==null){
+            return "redirect:/login";
+        }else{
+            return "html/fabupinche";
+        }
     }
 
 

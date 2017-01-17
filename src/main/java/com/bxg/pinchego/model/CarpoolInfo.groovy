@@ -5,6 +5,8 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 import javax.persistence.Table
 import javax.persistence.Temporal
 import javax.persistence.TemporalType
@@ -19,6 +21,12 @@ class CarpoolInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id
+    /**
+     * 拼车信息所有人
+     */
+    @ManyToOne
+    @JoinColumn(name = "user_id",nullable = false)
+    User user
     /**
      * 出发地
      */
