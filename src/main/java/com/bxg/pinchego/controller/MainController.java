@@ -31,45 +31,48 @@ public class MainController {
     CarpoolInfoRepository carpoolInfoRepository;
 
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
-        model.addAttribute("arpoolInfoList",carpoolInfo);
+        model.addAttribute("arpoolInfoList", carpoolInfo);
         return "car";
     }
+
     @RequestMapping("/{pagename}")
-    public String ticket(@PathVariable String pagename){
-        return "html/"+pagename;
+    public String ticket(@PathVariable String pagename) {
+        return "html/" + pagename;
     }
+
     /**
      * @author gaobin
      * @createDate 2017/1/10
      * @description 用户注册
-    */
+     */
     @RequestMapping("/reg")
     @ResponseBody
-    public String register(@Valid User user){
+    public String register(@Valid User user) {
         user.setLoginNumber(0);
         user.setRegisterDate(new Date());
         user.setPassword(sha1Util.getSha1(user.getPassword()));
         userRepository.save(user);
-       return "success";
+        return "success";
     }
+
     /**
      * @author gaobin
      * @createDate 2017/1/10
      * @description 用户登录
-    */
+     */
     @RequestMapping("/loginIn")
-    public String loginIn(@Valid User user, HttpSession session,HttpServletRequest request){
-        User searchUser = userRepository.findByUsernameAndPassword(user.getUsername(),sha1Util.getSha1(user.getPassword()));
-        if(searchUser==null){
+    public String loginIn(@Valid User user, HttpSession session, HttpServletRequest request) {
+        User searchUser = userRepository.findByUsernameAndPassword(user.getUsername(), sha1Util.getSha1(user.getPassword()));
+        if (searchUser == null) {
             request.setAttribute("loginMassage", "用户名或密码错误！");
             return "html/login";
-        }else{
-            searchUser.setLoginNumber(searchUser.getLoginNumber()+1);
+        } else {
+            searchUser.setLoginNumber(searchUser.getLoginNumber() + 1);
             searchUser.setLastLoginDate(new Date());
             userRepository.save(searchUser);
-            session.setAttribute("currentUser",searchUser);
+            session.setAttribute("currentUser", searchUser);
             return "redirect:/";
         }
 
@@ -80,37 +83,38 @@ public class MainController {
      * @author gaobin
      * @createDate 2017/1/10
      * @description 跳转登录页面
-    */
+     */
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "html/login";
     }
+
     /**
      * @author gaobin
      * @createDate 2017/1/12
      * @description 跳转车票预定页面
-    */
+     */
     @RequestMapping("/chepiao")
-    public String chepiao(Model model){
+    public String chepiao(Model model) {
         List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
-        model.addAttribute("arpoolInfoList",carpoolInfo);
+        model.addAttribute("arpoolInfoList", carpoolInfo);
         return "html/chepiao";
     }
+
     /**
      * @author gaobin
      * @createDate 2017/1/13
      * @description 跳转拼车信息发布页面
-    */
+     */
     @RequestMapping("/publish")
-    public String publishInfo(HttpSession session){
+    public String publishInfo(HttpSession session) {
         User user = UserUtils.getCurrentUser(session);
-        if(user==null){
+        if (user == null) {
             return "redirect:/login";
-        }else{
-            return "html/fabupinche";
+        } else {
+            return "html/publish";
         }
     }
-
 
 
 }
