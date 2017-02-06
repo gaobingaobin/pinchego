@@ -19,7 +19,7 @@ import javax.persistence.TemporalType
 class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id
+    Integer id
     /**
      * 用户名
     */

@@ -160,7 +160,7 @@
                         <span>日期</span>
                         <input type="text" class="form-input" value="" onfocus="showtime()" placeholder="出发日期" id="gotime"/>
                     </div>
-                    <input type="button" class="form-btn" value="搜索" onClick="searchkey()"/>
+                    <input type="button" class="form-btn" value="搜索" onClick="getCarpoolInfo()"/>
                 </li>
                 <script>
                     function searchkey(){
@@ -409,9 +409,12 @@
         });
     });
     function getCarpoolInfo() {
+        var startAddress = $("#gocity").val();
+        var endAddress = $("#endcity").val();
+        var startDate = $("#gotime").val();
         $.ajax({
-            url:'',
-            data:{},
+            url:'carpoolinfo/getCarpoolInfo',
+            data:{startAddress,endAddress,startDate},
             success:function (data) {
                 
             }

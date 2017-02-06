@@ -20,7 +20,7 @@ import javax.persistence.TemporalType
 class CarpoolInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id
+    Integer id
     /**
      * 拼车信息所有人
      */

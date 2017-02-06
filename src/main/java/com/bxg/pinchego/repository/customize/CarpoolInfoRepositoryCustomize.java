@@ -10,6 +10,6 @@ import java.util.Map;
  * @createDate ${Date}
  */
 public interface CarpoolInfoRepositoryCustomize {
-    List<CarpoolInfo>  getCarpoolInfo(CarpoolInfo carpoolInfo);
+    List<CarpoolInfo>  findCarpoolInfoByPage(CarpoolInfo carpoolInfo);
 
 }

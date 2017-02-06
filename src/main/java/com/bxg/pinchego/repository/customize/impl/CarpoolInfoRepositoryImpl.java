@@ -15,12 +15,13 @@ import java.util.Map;
  * @author gaobin
  * @createDate ${Date}
  */
-public class CarpoolInfoRepositoryCustomizeImpl implements CarpoolInfoRepositoryCustomize {
+public class CarpoolInfoRepositoryImpl implements CarpoolInfoRepositoryCustomize {
     @PersistenceContext
     private EntityManager em;
 
+
     @Override
-    public List<CarpoolInfo> getCarpoolInfo(CarpoolInfo carpoolInfo) {
+    public List<CarpoolInfo> findCarpoolInfoByPage(CarpoolInfo carpoolInfo) {
         StringBuffer sql = new StringBuffer();
         sql.append("from CarpoolInfo  c where 1=1");
         if(StringUtil.isNotBlank(carpoolInfo.getStartAddress())){
