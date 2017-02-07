@@ -113,12 +113,12 @@
             <dd><p style="border:#DDCAB7 1px solid; padding:10px; background:#F1EFEB"><strong
                     style="color:#F00">发布提示：</strong>您的身份未审核，审核后能够提升用户信任度，如需认证请至<a href="/home/center/ver.html">个人中心</a>进行认证
             </p></dd>
-            <dd style="position:relative">
+            <dd >
                 <ul class="mapadd" id="goaddlist"></ul>
                 <label>出 发 城 市：</label>
                 <input type="text" id="startAddress" name="startAddress">
             </dd>
-            <dd style="position:relative">
+            <dd >
                 <ul class="mapadd" id="endaddlist"></ul>
                 <label>到 达 城 市：</label>
                 <input type="text" id="endAddress" name="endAddress">
@@ -210,7 +210,7 @@
                 <label>途 经 城 市：</label>
                 <a href="javascript:;" onclick="zhanvia()"><i class="iconfont" style="font-size: 20px">+</i>添加途经城市</a>
             </dd>
-            <dd style="position:relative; display:none" id="viaadd1">
+            <dd style=" display:none" id="viaadd1">
                 <ul class="mapadd" id="via1addlist"></ul>
                 <label>途 经 城 市：</label>
                 <input type="text" id="middleAddress_A" name="middleAddress_A">
@@ -220,7 +220,7 @@
                    onclick="dell(1)">-</a>
                 <a class="iconfont" href="javascript:;" onclick="add(2)" id="jia1" style="font-size: 20px">+</a>
             </dd>
-            <dd style="position:relative; display:none" id="viaadd2">
+            <dd style="display:none" id="viaadd2">
                 <ul class="mapadd" id="via2addlist"></ul>
                 <label>途 经 城 市：</label>
                 <input type="text" id="middleAddress_B" name="middleAddress_B">
@@ -231,7 +231,7 @@
                 <a class="iconfont" href="javascript:;" onclick="add(3)" style="font-size: 20px"
                    id="jia2">+</a>
             </dd>
-            <dd style="position:relative; display:none" id="viaadd3">
+            <dd style="display:none" id="viaadd3">
                 <ul class="mapadd" id="via3addlist"></ul>
                 <label>途 经 城 市：</label>
                 <input type="text" id="middleAddress_C" name="middleAddress_C">
@@ -363,7 +363,7 @@
                     if(data=="success"){
                         alert('发布成功');
                         setTimeout(function(){
-                            window.location.href ="/fabupinche";
+                            window.location.href ="/publish";
                         },1500);
                     }else if(data=="failed"){
                         window.location.href ="/login";

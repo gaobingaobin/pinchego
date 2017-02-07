@@ -366,8 +366,9 @@
 		adjustPosition: function () {
 			var $field = $(this._o.field),
 				$el = this.el;
-			var x = $field.position().left,
-				y = $field.position().top + $field.outerHeight();
+			var position =  $field.position();
+			var x = position.left,
+				y = position.top + $field.outerHeight();
 
 			$el.css({
 				position: 'absolute',
