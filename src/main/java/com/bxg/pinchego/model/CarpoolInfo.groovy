@@ -16,7 +16,7 @@ import javax.persistence.TemporalType
  * @createDate ${Date}  
  */
 @Entity
-@Table(name = "pinche_carpoolinfo")
+@Table(name = "carpoolinfo")
 class CarpoolInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

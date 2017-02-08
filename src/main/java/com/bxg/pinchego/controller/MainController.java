@@ -96,8 +96,6 @@ public class MainController {
      */
     @RequestMapping("/chepiao")
     public String chepiao(Model model) {
-        List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
-        model.addAttribute("arpoolInfoList", carpoolInfo);
         return "html/chepiao";
     }
 

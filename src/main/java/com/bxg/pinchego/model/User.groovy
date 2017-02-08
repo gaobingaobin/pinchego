@@ -15,7 +15,7 @@ import javax.persistence.TemporalType
  * @description 用户信息类
 */
 @Entity
-@Table(name = "pinche_user")
+@Table(name = "user")
 class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
