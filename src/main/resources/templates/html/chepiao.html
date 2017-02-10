@@ -449,7 +449,7 @@
         <div class="clear"></div>
     </dl>
     <p style="padding:10px"><span></span> 共计114个车次</p>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="carpoolInfoTable">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr>
             <th height="50" align="center" bgcolor="#00A1D9" width="100">头像</th>
             <th height="50" align="center" bgcolor="#00A1D9" width="100">昵称</th>
@@ -463,6 +463,8 @@
             <th height="50" align="center" bgcolor="#00A1D9" width="80">保证金</th>
             <th height="50" align="center" bgcolor="#00A1D9" width="80">预定</th>
         </tr>
+        <tbody id="carpoolInfoTable">
+        </tbody>
     </table>
     <div class="page-field">
         <div><span class="current">1</span><a class="num" href="html/chepiao/p/2.html">2</a><a class="num"
@@ -544,7 +546,7 @@
                             + "</td>";
 
                 });
-                $("#carpoolInfoTable").append(info);
+                $("#carpoolInfoTable").html(info);
             }
         })
 

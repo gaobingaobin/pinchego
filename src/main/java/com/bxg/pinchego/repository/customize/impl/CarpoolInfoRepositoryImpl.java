@@ -27,11 +27,11 @@ public class CarpoolInfoRepositoryImpl implements CarpoolInfoRepositoryCustomize
         if(StringUtil.isNotBlank(carpoolInfo.getStartAddress())){
             sql.append(" and c.startAddress like '%"+carpoolInfo.getStartAddress()+"%'");
         }
-        if(StringUtil.isNotBlank(carpoolInfo.getStartAddress())){
+        if(StringUtil.isNotBlank(carpoolInfo.getEndAddress())){
             sql.append(" and c.endAddress like '%"+carpoolInfo.getEndAddress()+"%'");
         }
-        if(StringUtil.isNotBlank(carpoolInfo.getStartAddress())){
-            sql.append(" and c.endAddress like '%"+carpoolInfo.getEndAddress()+"%'");
+        if(StringUtil.isNotBlank(carpoolInfo.getStartDate())){
+            sql.append(" and c.startDate like '%"+carpoolInfo.getStartDate()+"%'");
         }
         Query query = em.createQuery(sql.toString());
         List result = query.getResultList();
