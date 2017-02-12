@@ -148,7 +148,7 @@
                         <span>日期</span>
                         <input type="text" class="form-input" onfocus="showtime()" placeholder="出发日期" id="gotime"/>
                     </div>
-                    <input type="button" class="form-btn" value="搜索" onClick="searchkey()"/>
+                    <input type="button" class="form-btn" value="搜索" onClick="getCarpoolInfo()"/>
                 </li>
                 <li class="hot-line">
                     热门线路：
@@ -363,21 +363,8 @@
             <th height="50" align="center" bgcolor="#00A1D9" width="80">保证金</th>
             <th height="50" align="center" bgcolor="#00A1D9" width="80">预定</th>
         </tr>
-        <tr th:each="carpoolInfo,carpoolInfoStat:${arpoolInfoList}">
-            <td height="50" align="center" bgcolor="#FFFFFF"><img src="../images/face.jpg" class="face80" /></td>
-            <td height="50" align="center" bgcolor="#FFFFFF">无</td>
-            <td height="50" bgcolor="#FFFFFF">
-                <p class="iconcity" ><i>起</i><span th:text="${carpoolInfo.startAddress}"></span></p>
-                <p class="iconcity2"><i>终</i><span th:text="${carpoolInfo.endAddress}"></span></p>
-            </td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.startDate}">15:30</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.carType}">舒适私家车</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.amount}">210</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  th:text="${carpoolInfo.personNum}">6</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  >无</td>
-            <td height="50" align="center" bgcolor="#FFFFFF"  ><font color="#f30000"><strong>未担保</strong></font></td>
-            <td height="50" align="center" bgcolor="#FFFFFF"><a style="width:80px" href="html/view/id/4917.html" class="ccolor btn"><font>预定</font></a></td>
-        </tr>
+        <tbody id="carpoolInfoTable">
+        </tbody>
     </table>
     <p style="width:100%; text-align:center"><a href="html/chepiao.html" class="ccolor btn"><font>查看更多数据</font></a></p>
 </div>
@@ -417,6 +404,44 @@
             }
         });
     });
+    $(function () {
+        getCarpoolInfo();
+    });
+    function getCarpoolInfo() {
+        var startAddress = $("#gocity").val();
+        var endAddress = $("#endcity").val();
+        var startDate = $("#gotime").val();
+        var info = "";
+        $.ajax({
+            url: 'carpoolinfo/getCarpoolInfo',
+            type: 'post',
+            data: {startAddress, endAddress, startDate},
+            dataType: 'text',
+            success: function (data) {
+                var infoData = JSON.parse(data);
+                $.each(infoData, function (i, item) {
+                    info += "<tr>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'><img src='../images/face.jpg' class='face80' /></td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>无</td>"
+                            + "<td height='50' bgcolor='#FFFFFF'>"
+                            + "<p class='iconcity' ><i>起</i><span>" + item.startAddress + "</span></p>"
+                            + "<p class='iconcity2'><i>终</i><span>" + item.endAddress + "</span></p>"
+                            + " </td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>" + item.startDate + "</td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>" + item.carType + "</td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>" + item.amount + "</td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>" + item.personNum + "</td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'>无</td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'><font color='#f30000'><strong>未担保</strong></font></td>"
+                            + "<td height='50' align='center' bgcolor='#FFFFFF'><a style='width:80px' href='html/view/id/4917.html' class='ccolor btn'><font>预定</font></a></td>"
+                            + "</td>";
+
+                });
+                $("#carpoolInfoTable").html(info);
+            }
+        })
+
+    }
 </script>
 <!--------------汽车票预定完-------------------------->
 <div class="footer">
