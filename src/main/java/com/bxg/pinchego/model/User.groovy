@@ -1,10 +1,16 @@
 package com.bxg.pinchego.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.JoinTable
+import javax.persistence.ManyToMany
 import javax.persistence.Table
 import javax.persistence.Temporal
 import javax.persistence.TemporalType
@@ -15,7 +21,7 @@ import javax.persistence.TemporalType
  * @description 用户信息类
 */
 @Entity
-@Table(name = "user")
+@Table(name = "core_user")
 class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,5 +57,12 @@ class User {
      */
     @Column(length = 32)
     Integer loginNumber
+    /**
+     * 员工所拥有的权限
+     */
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name = "core_user_permission", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "permissionId"))
+    @JsonIgnore
+    Set<Permission> permissions
 
 }

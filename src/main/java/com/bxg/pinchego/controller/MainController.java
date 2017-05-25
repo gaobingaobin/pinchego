@@ -82,6 +82,26 @@ public class MainController {
     /**
      * @author gaobin
      * @createDate 2017/1/10
+     * @description app登录
+     */
+    @RequestMapping("/appLogin")
+    @ResponseBody
+    public String appLogin(@Valid User user, HttpSession session) {
+        User searchUser = userRepository.findByUsernameAndPassword(user.getUsername(), sha1Util.getSha1(user.getPassword()));
+        if (searchUser == null) {
+           return "error";
+        } else {
+            searchUser.setLoginNumber(searchUser.getLoginNumber() + 1);
+            searchUser.setLastLoginDate(new Date());
+            userRepository.save(searchUser);
+            session.setAttribute("currentUser", searchUser);
+            return "success";
+        }
+    }
+
+    /**
+     * @author gaobin
+     * @createDate 2017/1/10
      * @description 跳转登录页面
      */
     @RequestMapping("/login")

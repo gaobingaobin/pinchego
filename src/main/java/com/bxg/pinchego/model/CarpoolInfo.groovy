@@ -16,7 +16,7 @@ import javax.persistence.TemporalType
  * @createDate ${Date}  
  */
 @Entity
-@Table(name = "carpoolinfo")
+@Table(name = "car_pool_info")
 class CarpoolInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,22 +41,22 @@ class CarpoolInfo {
      * 途径地A
      */
     @Column(length = 64, nullable = true)
-    String middleAddress_A
+    String middleAddress_a
     /**
      * 途径地B
      */
     @Column(length = 64, nullable = true)
-    String middleAddress_B
+    String middleAddress_b
     /**
      * 途径地a
      */
     @Column(length = 64, nullable = true)
-    String middleAddress_C
+    String middleAddress_c
     /**
      * 途径地a
      */
     @Column(length = 64, nullable = true)
-    String middleAddress_D
+    String middleAddress_d
     /**
      * 出发时间
     */
