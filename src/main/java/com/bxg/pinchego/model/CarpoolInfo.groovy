@@ -18,6 +18,7 @@ import javax.persistence.TemporalType
 @Entity
 @Table(name = "car_pool_info")
 class CarpoolInfo {
+    private static final long serialVersionUID = 8197409369264035839L
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id

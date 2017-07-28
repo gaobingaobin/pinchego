@@ -9,7 +9,7 @@ import javax.persistence.*
  */
 @Entity(name = "core_menu")
 class Menu implements Serializable {
-    private static final long serialVersionUID = 6996386421824822733L
+    private static final long serialVersionUID = 7704955371891711515L
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

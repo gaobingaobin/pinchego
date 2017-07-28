@@ -23,6 +23,7 @@ import javax.persistence.TemporalType
 @Entity
 @Table(name = "core_user")
 class User {
+    private static final long serialVersionUID = 1004708956985643003L
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id

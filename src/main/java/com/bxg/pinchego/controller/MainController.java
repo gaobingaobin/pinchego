@@ -6,6 +6,9 @@ import com.bxg.pinchego.model.CarpoolInfo;
 import com.bxg.pinchego.model.User;
 import com.bxg.pinchego.repository.CarpoolInfoRepository;
 import com.bxg.pinchego.repository.UserRepository;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +33,7 @@ public class MainController {
     @Autowired
     CarpoolInfoRepository carpoolInfoRepository;
 
-    @RequestMapping("/")
+    @RequestMapping("/car")
     public String index(Model model) {
         List<CarpoolInfo> carpoolInfo = carpoolInfoRepository.findAll();
         model.addAttribute("arpoolInfoList", carpoolInfo);
@@ -65,15 +68,18 @@ public class MainController {
     @RequestMapping("/loginIn")
     public String loginIn(@Valid User user, HttpSession session, HttpServletRequest request) {
         User searchUser = userRepository.findByUsernameAndPassword(user.getUsername(), sha1Util.getSha1(user.getPassword()));
+        Subject currentUser = SecurityUtils.getSubject();
         if (searchUser == null) {
             request.setAttribute("loginMassage", "用户名或密码错误！");
             return "html/login";
         } else {
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(searchUser.getUsername(),searchUser.getPassword());
+            currentUser.login(usernamePasswordToken);
             searchUser.setLoginNumber(searchUser.getLoginNumber() + 1);
             searchUser.setLastLoginDate(new Date());
             userRepository.save(searchUser);
             session.setAttribute("currentUser", searchUser);
-            return "redirect:/";
+            return "redirect:/car";
         }
 
 
@@ -88,9 +94,12 @@ public class MainController {
     @ResponseBody
     public String appLogin(@Valid User user, HttpSession session) {
         User searchUser = userRepository.findByUsernameAndPassword(user.getUsername(), sha1Util.getSha1(user.getPassword()));
+        Subject currentUser = SecurityUtils.getSubject();
         if (searchUser == null) {
            return "error";
         } else {
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(searchUser.getUsername(),searchUser.getPassword());
+            currentUser.login(usernamePasswordToken);
             searchUser.setLoginNumber(searchUser.getLoginNumber() + 1);
             searchUser.setLastLoginDate(new Date());
             userRepository.save(searchUser);

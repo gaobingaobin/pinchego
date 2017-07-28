@@ -8,7 +8,7 @@ import javax.persistence.*
  */
 @Entity(name = "core_role")
 class Role implements Serializable{
-    private static final long serialVersionUID = 6325070380333385241L
+    private static final long serialVersionUID = 1909333931576918111L
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

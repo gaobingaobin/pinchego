@@ -9,7 +9,7 @@ import javax.persistence.*
  */
 @Entity(name = "core_permission")
 class Permission implements Serializable{
-    private static final long serialVersionUID = 555127917491538828L
+    private static final long serialVersionUID = 8240842977182267875L
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
