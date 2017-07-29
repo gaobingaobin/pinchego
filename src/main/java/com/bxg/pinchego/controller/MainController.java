@@ -9,6 +9,8 @@ import com.bxg.pinchego.repository.UserRepository;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.util.SavedRequest;
+import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,7 +81,12 @@ public class MainController {
             searchUser.setLastLoginDate(new Date());
             userRepository.save(searchUser);
             session.setAttribute("currentUser", searchUser);
-            return "redirect:/car";
+            SavedRequest savedRequest = WebUtils.getSavedRequest(request);//获取跳转前的url
+            // 获取保存的URL
+            if (savedRequest == null || savedRequest.getRequestUrl() == null) {
+                return "redirect:/car";
+            }
+            return "redirect:" + savedRequest.getRequestUrl();
         }
 
 
